@@ -5,6 +5,10 @@ This repository contains my own personal set of tools to help running Windows on
 **This software is provided on best-effort basis and can break your SteamDeck.**
 To learn more go to [Risks](#4-risks).
 
+### If you found it useful buy me [Ko-fi](https://ko-fi.com/ayufan).
+
+<a href='https://ko-fi.com/ayufan' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' alt='Buy Me a Coffee at ko-fi.com' />
+
 ## 1. Steam Deck Fan Control
 
 This is a very early and highly experimental fan controller for Windows build based
@@ -146,7 +150,7 @@ Since when there's no Steam, there's no problem at all.
 
 #### 4.1.1. The ideal setup - run Steam when running game via Playnite
 
-It is **preffered** to configure Steam as described in [Configure Steam](#43-configure-steam).
+It is **preferred** to configure Steam as described in [Configure Steam](#43-configure-steam).
 
 The perfect way to use it:
 
@@ -160,7 +164,17 @@ This allows to use `Steam Input` for Steam games.
 
 Configure Playnite to close Steam after game session.
 
-#### 4.1.2. Less ideal (quirky) - Run Steam in background
+#### 4.1.2. Another great option - Always use X360 controller and completly disable Steam Input
+
+It is **not needed** to configure Steam as described in [Configure Steam](#43-configure-steam).
+
+In this mode you would use either Desktop or X360 controls, and all Steam games would use X360.
+When running in this mode you would have to switch between Desktop and X360 mode with `Options` button
+or with `PowerControl`.
+
+Of course you will have access to all described shortcuts.
+
+#### 4.1.3. Less ideal (quirky) - Run Steam in background
 
 It is **required** to configure Steam as described in [Configure Steam](#43-configure-steam).
 
@@ -177,19 +191,6 @@ and disable itself for the duration of game play. This allows to use `Steam Inpu
 > of handling Steam running in background alongside `Steam Controller`. This will never
 > be supported mode of operation.
 
-#### 4.1.3. Optional - Always use X360 controller and completly disable Steam Input
-
-It is **not needed** to configure Steam as described in [Configure Steam](#43-configure-steam).
-
-Alternative way is to use [HidHide](https://github.com/ViGEm/HidHide) to hide `Valve Software Steam Controller`
-from Steam. You would then have to disable detection of Steam via `Auto-disable on Steam` in `SteamController`.
-
-In this mode you would use either Desktop or X360 controls, and all Steam games would use X360.
-When running in this mode you would have to switch between Desktop and X360 mode with `Options` button
-or with `PowerControl`.
-
-Of course you will have access to all described shortcuts.
-
 ### 4.2. Mappings
 
 | Button                     | Desktop                | X360 (with Rumble)     | Steam                  | Steam With Shortcuts   |
@@ -197,10 +198,12 @@ Of course you will have access to all described shortcuts.
 | X360 Controller            | Not connected          | Connected              | Not connected          | Not connected          |
 | Options (hold for 1s)      | Switch to next profile | Switch to next profile | Switch to next profile | Switch to next profile |
 | Options (hold for 3s)      | Toggle desktop mode    | Toggle desktop mode    |                        |                        |
-| STEAM + Menu               | WIN + Tab              | WIN + Tab              | WIN + Tab              | WIN + Tab              |
+| STEAM + 3 dots             | CTRL + SHIFT + ESCAPE  | CTRL + SHIFT + ESCAPE  | CTRL + SHIFT + ESCAPE  | CTRL + SHIFT + ESCAPE  |
+| STEAM + Menu               | WIN + TAB              | WIN + TAB              | WIN + TAB              | WIN + TAB              |
 | STEAM + Options            | F11                    | F11                    | F11                    | F11                    |
 | STEAM + A                  | RETURN                 | RETURN                 |                        | RETURN                 |
 | STEAM + B (hold for 1s)    | ALT + F4               | ALT + F4               |                        | ALT + F4               |
+| STEAM + B (hold for 3s)    | Kill active process    | Kill active process    |                        | Kill active process    |
 | STEAM + X                  | Toggle Keyboard        | Toggle Keyboard        |                        | Toggle Keyboard        |
 | STEAM + L1                 | Toggle Magnify         | Toggle Magnify         |                        | Toggle Magnify         |
 | STEAM + R1                 | Screenshot             | Screenshot             |                        | Screenshot             |
@@ -209,6 +212,7 @@ Of course you will have access to all described shortcuts.
 | STEAM + DPad Right         | RETURN                 | RETURN                 |                        | RETURN                 |
 | STEAM + DPad Down          | TAB                    | TAB                    |                        | TAB                    |
 | STEAM + DPad Left          | ESCAPE                 | ESCAPE                 |                        | ESCAPE                 |
+| STEAM + DPad Up            | CTRL + ALT + U         | CTRL + ALT + U         |                        | CTRL + ALT + U         |
 | STEAM + Left Pad           | Mouse Scroll           | Mouse Scroll           |                        | Mouse Scroll           |
 | STEAM + Left Joystick      | Mouse Scroll           | Mouse Scroll           |                        | Mouse Scroll           |
 | STEAM + Right Joystick     | Mouse Trackpad         | Mouse Trackpad         |                        | Mouse Trackpad         |
@@ -217,7 +221,6 @@ Of course you will have access to all described shortcuts.
 | STEAM + R2                 | Mouse Left Click       | Mouse Left Click       |                        | Mouse Left Click       |
 | STEAM + Left Pad Press     | Mouse Right Click      | Mouse Right Click      |                        | Mouse Right Click      |
 | STEAM + Right Pad Press    | Mouse Left Click       | Mouse Left Click       |                        | Mouse Left Click       |
-| Steam + Up Pad Press       | Ctrl + Alt + U         | Ctrl + Alt + U         |                        |                        |
 | Left Pad                   | Mouse Scroll           |                        |                        |                        |
 | Left Joystick              | Mouse Scroll           |                        |                        |                        |
 | Right Joystick             | Mouse Trackpad         |                        |                        |                        |
@@ -263,8 +266,8 @@ To configure the hotkey in Lossless Scaling:
 1. Launch Lossless Scaling
 1. Open "Settings"
 1. Select the "Scale hotkey"
-1. Press "Steam+DPad Up"
-1. Verify that the hotkey was set to "Ctrl + Alt + U"
+1. Press "STEAM + DPad Up"
+1. Verify that the hotkey was set to "CTRL + ALT + U"
 1. Close the settings dialog
 
 ## 5. Risks
@@ -297,8 +300,9 @@ after when such event occurs.
 Since this project uses direct manipulation of kernel memory via `inpoutx64.dll`
 it might trigger Antivirus and Anti-Cheat software.
 
-You might consider disabling all tools if this happens. Unfortunatelly there's no worakound for that
-unless someone gets access to driver signing certificate for Windows.
+If you use at least version `0.5.x` you can disable kernel drivers usage that should
+avoid trippping Anti-Cheat detection. Set FAN to `Default` and disable `OSD Kernel Drivers`.
+Of course you will miss some metrics due to that.
 
 ## 7. Development
 

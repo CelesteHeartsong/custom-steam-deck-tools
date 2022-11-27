@@ -15,12 +15,12 @@ namespace SteamController.Devices
         public readonly SteamButton BtnDpadRight = new SteamButton2(0x08, SDCButton0.BTN_DPAD_RIGHT) { LizardButton = true };
         public readonly SteamButton BtnDpadUp = new SteamButton2(0x08, SDCButton0.BTN_DPAD_UP) { LizardButton = true };
         public readonly SteamButton BtnA = new SteamButton2(0x08, SDCButton0.BTN_A) { LizardButton = true };
-        public readonly SteamButton BtnX = new SteamButton2(0x08, SDCButton0.BTN_X) { LizardButton = true };
+        public readonly SteamButton BtnX = new SteamButton2(0x08, SDCButton0.BTN_X);
         public readonly SteamButton BtnB = new SteamButton2(0x08, SDCButton0.BTN_B) { LizardButton = true };
-        public readonly SteamButton BtnY = new SteamButton2(0x08, SDCButton0.BTN_Y) { LizardButton = true };
-        public readonly SteamButton BtnL1 = new SteamButton2(0x08, SDCButton0.BTN_L1) { LizardButton = true };
+        public readonly SteamButton BtnY = new SteamButton2(0x08, SDCButton0.BTN_Y);
+        public readonly SteamButton BtnL1 = new SteamButton2(0x08, SDCButton0.BTN_L1);
         public readonly SteamButton BtnL2 = new SteamButton2(0x08, SDCButton0.BTN_L2) { LizardButton = true };
-        public readonly SteamButton BtnR1 = new SteamButton2(0x08, SDCButton0.BTN_R1) { LizardButton = true };
+        public readonly SteamButton BtnR1 = new SteamButton2(0x08, SDCButton0.BTN_R1);
         public readonly SteamButton BtnR2 = new SteamButton2(0x08, SDCButton0.BTN_R2) { LizardButton = true };
         public readonly SteamButton BtnLeftStickPress = new SteamButton2(0x0a, SDCButton1.BTN_LSTICK_PRESS);
         public readonly SteamButton BtnLPadTouch = new SteamButton2(0x0a, SDCButton1.BTN_LPAD_TOUCH);
@@ -40,10 +40,10 @@ namespace SteamController.Devices
         public readonly SteamButton BtnVirtualLeftThumbLeft = new SteamButton();
         public readonly SteamButton BtnVirtualLeftThumbRight = new SteamButton();
 
-        public readonly SteamAxis LPadX = new SteamAxis(0x10);
-        public readonly SteamAxis LPadY = new SteamAxis(0x12);
-        public readonly SteamAxis RPadX = new SteamAxis(0x14) { LizardMouse = true };
-        public readonly SteamAxis RPadY = new SteamAxis(0x16) { LizardMouse = true };
+        public readonly SteamAxis LPadX = new SteamAxis(0x10) { DeltaValueMode = Devices.DeltaValueMode.Delta };
+        public readonly SteamAxis LPadY = new SteamAxis(0x12) { DeltaValueMode = Devices.DeltaValueMode.Delta };
+        public readonly SteamAxis RPadX = new SteamAxis(0x14) { LizardMouse = true, DeltaValueMode = Devices.DeltaValueMode.Delta };
+        public readonly SteamAxis RPadY = new SteamAxis(0x16) { LizardMouse = true, DeltaValueMode = Devices.DeltaValueMode.Delta };
         public readonly SteamAxis AccelX = new SteamAxis(0x18);
         public readonly SteamAxis AccelY = new SteamAxis(0x1A);
         public readonly SteamAxis AccelZ = new SteamAxis(0x1C);
@@ -52,10 +52,10 @@ namespace SteamController.Devices
         public readonly SteamAxis GyroRoll = new SteamAxis(0x22);
         public readonly SteamAxis LeftTrigger = new SteamAxis(0x2C);
         public readonly SteamAxis RightTrigger = new SteamAxis(0x2E);
-        public readonly SteamAxis LeftThumbX = new SteamAxis(0x30) { Deadzone = 5000, MinChange = 10 };
-        public readonly SteamAxis LeftThumbY = new SteamAxis(0x32) { Deadzone = 5000, MinChange = 10 };
-        public readonly SteamAxis RightThumbX = new SteamAxis(0x34) { Deadzone = 5000, MinChange = 10 };
-        public readonly SteamAxis RightThumbY = new SteamAxis(0x36) { Deadzone = 5000, MinChange = 10 };
+        public readonly SteamAxis LeftThumbX = new SteamAxis(0x30) { Deadzone = 5000, MinChange = 10, DeltaValueMode = Devices.DeltaValueMode.AbsoluteTime };
+        public readonly SteamAxis LeftThumbY = new SteamAxis(0x32) { Deadzone = 5000, MinChange = 10, DeltaValueMode = Devices.DeltaValueMode.AbsoluteTime };
+        public readonly SteamAxis RightThumbX = new SteamAxis(0x34) { Deadzone = 5000, MinChange = 10, DeltaValueMode = Devices.DeltaValueMode.AbsoluteTime };
+        public readonly SteamAxis RightThumbY = new SteamAxis(0x36) { Deadzone = 5000, MinChange = 10, DeltaValueMode = Devices.DeltaValueMode.AbsoluteTime };
         public readonly SteamAxis LPadPressure = new SteamAxis(0x38);
         public readonly SteamAxis RPadPressure = new SteamAxis(0x38);
 

@@ -25,7 +25,7 @@ namespace SteamController {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool EnableSteamDetection {
             get {
                 return ((bool)(this["EnableSteamDetection"]));
@@ -37,13 +37,13 @@ namespace SteamController {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool EnableHidHide {
+        [global::System.Configuration.DefaultSettingValueAttribute("Desktop")]
+        public string StartupProfile {
             get {
-                return ((bool)(this["EnableHidHide"]));
+                return ((string)(this["StartupProfile"]));
             }
             set {
-                this["EnableHidHide"] = value;
+                this["StartupProfile"] = value;
             }
         }
     }

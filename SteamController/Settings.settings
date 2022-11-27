@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="EnableSteamDetection" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="EnableHidHide" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+    <Setting Name="StartupProfile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Desktop</Value>
     </Setting>
   </Settings>
 </SettingsFile>

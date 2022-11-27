@@ -13,7 +13,7 @@ namespace SteamController.Profiles
 
         public override bool Selected(Context context)
         {
-            return context.Enabled && context.DesktopMode && !context.SteamUsesController;
+            return context.Enabled && context.DesktopMode;
         }
 
         public override Status Run(Context c)
@@ -41,56 +41,30 @@ namespace SteamController.Profiles
             EmulateMouseOnRStick(c);
             EmulateDPadArrows(c);
 
-            if (c.Steam.BtnA.Pressed())
-            {
-                c.Keyboard.KeyPress(VirtualKeyCode.RETURN);
-            }
-            if (c.Steam.BtnB.Pressed())
-            {
-                c.Keyboard.KeyPress(VirtualKeyCode.BACK);
-            }
+            c.Keyboard[VirtualKeyCode.RETURN] = c.Steam.BtnA;
+            c.Keyboard[VirtualKeyCode.BACK] = c.Steam.BtnB;
 
             return Status.Continue;
         }
 
         private void EmulateScrollOnLStick(Context c)
         {
-            if (c.Steam.BtnVirtualLeftThumbUp.HoldRepeat(Context.ThumbToWhellFirstRepeat, Context.ThumbToWhellRepeat, Consumed))
+            if (c.Steam.LeftThumbX)
             {
-                c.Mouse.VerticalScroll(Context.ThumbToWhellSensitivity);
+                c.Mouse.HorizontalScroll(c.Steam.LeftThumbX.DeltaValue * Context.ThumbToWhellSensitivity);
             }
-            else if (c.Steam.BtnVirtualLeftThumbDown.HoldRepeat(Context.ThumbToWhellFirstRepeat, Context.ThumbToWhellRepeat, Consumed))
+            if (c.Steam.LeftThumbY)
             {
-                c.Mouse.VerticalScroll(-Context.ThumbToWhellSensitivity);
-            }
-            else if (c.Steam.BtnVirtualLeftThumbLeft.HoldRepeat(Context.ThumbToWhellFirstRepeat, Context.ThumbToWhellRepeat, Consumed))
-            {
-                c.Mouse.HorizontalScroll(-Context.ThumbToWhellSensitivity);
-            }
-            else if (c.Steam.BtnVirtualLeftThumbRight.HoldRepeat(Context.ThumbToWhellFirstRepeat, Context.ThumbToWhellRepeat, Consumed))
-            {
-                c.Mouse.HorizontalScroll(Context.ThumbToWhellSensitivity);
+                c.Mouse.VerticalScroll(c.Steam.LeftThumbY.DeltaValue * Context.ThumbToWhellSensitivity);
             }
         }
 
         private void EmulateDPadArrows(Context c)
         {
-#if true
-            if (c.Steam.BtnDpadLeft.HoldRepeat(Consumed))
-                c.Keyboard.KeyPress(VirtualKeyCode.LEFT);
-            if (c.Steam.BtnDpadRight.HoldRepeat(Consumed))
-                c.Keyboard.KeyPress(VirtualKeyCode.RIGHT);
-            if (c.Steam.BtnDpadUp.HoldRepeat(Consumed))
-                c.Keyboard.KeyPress(VirtualKeyCode.UP);
-            if (c.Steam.BtnDpadDown.HoldRepeat(Consumed))
-                c.Keyboard.KeyPress(VirtualKeyCode.DOWN);
-#else
-            c.Keyboard[VirtualKeyCode.RETURN] = c.Steam.BtnA;
             c.Keyboard[VirtualKeyCode.LEFT] = c.Steam.BtnDpadLeft;
             c.Keyboard[VirtualKeyCode.RIGHT] = c.Steam.BtnDpadRight;
             c.Keyboard[VirtualKeyCode.UP] = c.Steam.BtnDpadUp;
             c.Keyboard[VirtualKeyCode.DOWN] = c.Steam.BtnDpadDown;
-#endif
         }
     }
 }
