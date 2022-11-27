@@ -26,6 +26,12 @@ namespace SteamController.Profiles
                 SteamShortcuts(c);
                 return Status.Done;
             }
+            
+            // Backpanel Keybinds
+            if (c.Steam.BtnL4.HoldOnce(ShortcutConsumed)) { c.Keyboard.KeyPress(VirtualKeyCode.NUMPAD1); }
+            if (c.Steam.BtnL5.HoldOnce(ShortcutConsumed)) { c.Keyboard.KeyPress(VirtualKeyCode.NUMPAD2); }
+            if (c.Steam.BtnR4.HoldOnce(ShortcutConsumed)) { c.Keyboard.KeyPress(VirtualKeyCode.NUMPAD3); }
+            if (c.Steam.BtnR5.HoldOnce(ShortcutConsumed)) { c.Keyboard.KeyPress(VirtualKeyCode.NUMPAD4); }
 
             return Status.Continue;
         }
