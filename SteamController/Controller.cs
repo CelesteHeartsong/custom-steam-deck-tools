@@ -129,6 +129,8 @@ namespace SteamController
 #endif
             };
 
+            context.SelectProfile("X360 with Rumble");
+
             stopwatch.Start();
 
             contextThread = new Thread(ContextState_Update);
